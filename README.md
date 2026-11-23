@@ -2,7 +2,7 @@
 
 A universal agent skill and plugin designed to capture, track, and pay down technical debt and deferred work directly within codebases.
 
-Modeled after standard agent protocols like `grill-me` and `superpowers`, this skill equips AI coding assistants to manage `TECHDEBT.md` with zero friction to the developer.
+This skill equips AI coding assistants to manage `TECHDEBT.md` with zero friction to the developer.
 
 ---
 
