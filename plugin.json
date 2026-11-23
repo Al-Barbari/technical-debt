@@ -1,0 +1,13 @@
+{
+  "name": "technical-debt",
+  "displayName": "Technical Debt & Deferred Work",
+  "version": "1.0.0",
+  "description": "Zero-friction agent protocol to capture, track, and pay down technical debt and deferred work directly in TECHDEBT.md",
+  "author": {
+    "name": "Abdulelah Al-Barbari",
+    "url": "https://github.com/Al-Barbari"
+  },
+  "homepage": "https://github.com/Al-Barbari/technical-debt",
+  "repository": "https://github.com/Al-Barbari/technical-debt",
+  "license": "MIT"
+}
