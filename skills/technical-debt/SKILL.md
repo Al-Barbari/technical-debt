@@ -35,7 +35,7 @@ If `TECHDEBT.md` does not exist in the project root, create it using the canonic
 ```markdown
 # Technical Debt & Deferred Work
 
-> Maintained by the \`technical-debt\` agent skill. Review and pay down items during refactors.
+> Maintained by the `technical-debt` agent skill. Review and pay down items during refactors.
 
 ## Pending Debt
 
@@ -49,9 +49,9 @@ Search `TECHDEBT.md` for existing `[DEBT-XXX]` IDs. Find the highest integer and
 Append the item under `## Pending Debt` following the exact schema:
 ```markdown
 - [ ] **[DEBT-003]** <Action-oriented summary>
-  - **Location**: [\`path/to/file.ext#L10-L20\`](path/to/file.ext#L10-L20)
-  - **Category**: \`Prudent Shortcut\` | \`Missing Tests\` | \`Code Smell\` | \`Architecture\` | \`Deferred Feature\`
-  - **Severity**: \`Low\` | \`Medium\` | \`High\` | \`Critical\`
+  - **Location**: [`path/to/file.ext#L10-L20`](path/to/file.ext#L10-L20)
+  - **Category**: `Prudent Shortcut` | `Missing Tests` | `Code Smell` | `Architecture` | `Deferred Feature`
+  - **Severity**: `Low` | `Medium` | `High` | `Critical`
   - **Why Deferred**: <1-2 sentences explaining why this was deferred>
   - **Logged**: YYYY-MM-DD by <Agent or Developer>
 ```
@@ -86,7 +86,7 @@ When paying down an item from `TECHDEBT.md`:
 2. **Move to Resolved**: Move the item from `## Pending Debt` to `## Resolved Debt`.
 3. **Mark Complete**: Change `- [ ]` to `- [x]` and append resolution context:
    ```markdown
-   - [x] **[DEBT-001]** Refactor auth error handling (Resolved on 2026-11-23 in commit \`c8d1e2f\`)
+   - [x] **[DEBT-001]** Refactor auth error handling (Resolved on 2026-11-23 in commit `c8d1e2f`)
    ```
 
 ---

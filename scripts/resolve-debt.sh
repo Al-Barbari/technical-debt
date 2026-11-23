@@ -1,9 +1,20 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-DEBT_ID="${1:-}"
-RESOLUTION_NOTE="${2:-manual resolution}"
-FILE="${3:-TECHDEBT.md}"
+DEBT_ID=""
+RESOLUTION_NOTE="manual resolution"
+FILE="TECHDEBT.md"
+
+# Parse arguments
+if [ $# -ge 1 ]; then
+  DEBT_ID="$1"
+fi
+if [ $# -ge 2 ]; then
+  RESOLUTION_NOTE="$2"
+fi
+if [ $# -ge 3 ]; then
+  FILE="$3"
+fi
 
 if [ -z "$DEBT_ID" ]; then
   echo "Usage: $0 <DEBT-ID> [RESOLUTION_NOTE] [FILE]"
@@ -15,6 +26,11 @@ DEBT_ID=$(echo "$DEBT_ID" | tr -d '[]')
 
 if [ ! -f "$FILE" ]; then
   echo "Error: $FILE does not exist"
+  exit 1
+fi
+
+if ! command -v node >/dev/null 2>&1; then
+  echo "Error: Node.js is required to execute resolve-debt.sh"
   exit 1
 fi
 
@@ -30,12 +46,20 @@ const date = process.argv[4];
 const content = fs.readFileSync(filePath, "utf8");
 const lines = content.split("\n");
 
+// Check if already resolved
+for (const line of lines) {
+  if (line.includes("**[" + id + "]**") && /^\s*- \[[xX]\]/.test(line)) {
+    console.log("Debt item [" + id + "] is already resolved.");
+    process.exit(0);
+  }
+}
+
 let targetIndex = -1;
 let title = "";
 
 for (let i = 0; i < lines.length; i++) {
   const line = lines[i];
-  if (line.includes("**[" + id + "]**")) {
+  if (line.includes("**[" + id + "]**") && /^\s*- \[[ ]\]/.test(line)) {
     targetIndex = i;
     const match = line.match(/\*\*\[.*?\]\*\*\s*(.*)$/);
     title = match ? match[1].trim() : id;
@@ -44,7 +68,7 @@ for (let i = 0; i < lines.length; i++) {
 }
 
 if (targetIndex === -1) {
-  console.error("Error: Debt item [" + id + "] not found.");
+  console.error("Error: Debt item [" + id + "] not found in pending list.");
   process.exit(1);
 }
 
@@ -52,7 +76,7 @@ if (targetIndex === -1) {
 let endIndex = targetIndex + 1;
 while (endIndex < lines.length) {
   const line = lines[endIndex];
-  if (/^\s*- \[[ x]\]/.test(line) || /^##\s/.test(line)) {
+  if (/^\s*- \[[ xX]\]/.test(line) || /^##\s/.test(line)) {
     break;
   }
   endIndex++;

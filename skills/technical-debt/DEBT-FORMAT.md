@@ -18,20 +18,20 @@ This document defines the official schema and formatting rules for `TECHDEBT.md`
 ```markdown
 # Technical Debt & Deferred Work
 
-> Maintained by the \`technical-debt\` agent skill. Review and pay down items during refactors.
+> Maintained by the `technical-debt` agent skill. Review and pay down items during refactors.
 
 ## Pending Debt
 
 - [ ] **[DEBT-001]** Refactor authentication error handling
-  - **Location**: [\`src/auth/login.ts#L45-L60\`](src/auth/login.ts#L45-L60)
-  - **Category**: \`Prudent Shortcut\`
-  - **Severity**: \`High\`
+  - **Location**: [`src/auth/login.ts#L45-L60`](src/auth/login.ts#L45-L60)
+  - **Category**: `Prudent Shortcut`
+  - **Severity**: `High`
   - **Why Deferred**: Postponed during initial MVP login flow to validate happy path first.
   - **Logged**: 2026-11-23 by Developer
 
 ## Resolved Debt
 
-- [x] **[DEBT-000]** Initial mock database configuration (Resolved on 2026-11-23 in commit \`a1b2c3d\`)
+- [x] **[DEBT-000]** Initial mock database configuration (Resolved on 2026-11-23 in commit `a1b2c3d`)
 ```
 
 ---
@@ -48,7 +48,7 @@ This document defines the official schema and formatting rules for `TECHDEBT.md`
 ### 3.2 Metadata Fields
 
 #### **Location**
-- Path and line number range relative to repository root: `[`src/api/routes.ts#L12-L30`](src/api/routes.ts#L12-L30)`
+- Path and line number range relative to repository root: [`src/api/routes.ts#L12-L30`](src/api/routes.ts#L12-L30)
 - For repository-wide or architectural debt with no single file: `N/A (Global / Architectural)`
 
 #### **Category**
