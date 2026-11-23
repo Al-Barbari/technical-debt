@@ -1,8 +1,5 @@
-out
-dist
-node_modules
-.vscode-test/
-*.vsix
-.cursurrules
-Development_plan
-README.md
+node_modules/
+.superpowers/
+.DS_Store
+*.log
+.fixflow/
